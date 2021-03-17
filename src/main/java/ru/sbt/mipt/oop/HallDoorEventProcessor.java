@@ -1,6 +1,8 @@
 package ru.sbt.mipt.oop;
 
 
+import java.lang.reflect.InvocationTargetException;
+
 public class HallDoorEventProcessor extends EventProcess {
     private final SmartHome smartHome;
 
@@ -8,14 +10,7 @@ public class HallDoorEventProcessor extends EventProcess {
         this.smartHome = smartHome;
     }
 
-    public void setLightOffAroundHome() {
-        for (Room homeRoom : smartHome.getRooms()) {
-            for (Light light : homeRoom.getLights()) {
-                light.setOn(false);
-                SensorCommand command = new SensorCommand(CommandType.LIGHT_OFF, light.getId());
-                CommandSender sender = new CommandSenderImpl();
-                sender.sendCommand(command);
-            }
-        }
+    public void setLightOffAroundHome() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        smartHome.execute(new Action(Light.class.getDeclaredMethod("setOn", boolean.class), false));
     }
 }

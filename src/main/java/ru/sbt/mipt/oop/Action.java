@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 
 public class Action {
     private final Method method;
-    private final boolean params;
+    private final Object params;
 
     public Action(Method method, boolean params) {
         this.method = method;
@@ -15,7 +15,7 @@ public class Action {
         return method;
     }
 
-    public boolean getParams() {
+    public Object getParams() {
         return params;
     }
 }

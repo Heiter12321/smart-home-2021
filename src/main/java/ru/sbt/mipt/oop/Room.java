@@ -1,8 +1,10 @@
 package ru.sbt.mipt.oop;
 
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
-public class Room {
+public class Room implements Actionable{
     private final Collection<Light> lights;
     private final Collection<Door> doors;
     private final String name;
@@ -23,5 +25,15 @@ public class Room {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public void execute(Action action) throws IllegalAccessException, InvocationTargetException {
+        IteratorCreator iteratorCreator = new IteratorCreator();
+        HomeElementIterator iterator = iteratorCreator.getIterator(action, lights, doors);
+        while (iterator.hasMore()) {
+            HomeElement homeElement = iterator.getNext();
+            action.getMethod().invoke(homeElement, action.getParams());
+        }
     }
 }

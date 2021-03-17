@@ -1,6 +1,6 @@
 package ru.sbt.mipt.oop;
 
-public class Light {
+public class Light implements HomeElement {
     private boolean isLightOn;
     private final String id;
 
@@ -9,7 +9,7 @@ public class Light {
         this.isLightOn = isLightOn;
     }
 
-    private boolean isLightOn() {
+    public boolean isLightOn() {
         return isLightOn;
     }
 

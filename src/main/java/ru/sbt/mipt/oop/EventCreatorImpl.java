@@ -1,9 +1,5 @@
 package ru.sbt.mipt.oop;
 
-interface EventCreator {
-    SensorEvent getNextSensorEvent();
-}
-
 public class EventCreatorImpl implements EventCreator{
     public EventCreatorImpl() {}
 

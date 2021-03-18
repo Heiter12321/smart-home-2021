@@ -8,8 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RoomTest {
 
-    private Light light;
-
     @Test
     void execute() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         SmartHome smartHome = new SmartHome(HomeBuilder.createFourRooms());

@@ -6,7 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static ru.sbt.mipt.oop.LightSensorEventType.LIGHT_ON;
+import static ru.sbt.mipt.oop.SensorEventType.LIGHT_ON;
 
 class LightEventProcessorTest1 {
     @Test

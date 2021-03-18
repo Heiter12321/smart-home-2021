@@ -2,9 +2,9 @@ package ru.sbt.mipt.oop;
 
 import java.lang.reflect.InvocationTargetException;
 
-import static ru.sbt.mipt.oop.DoorSensorEventType.DOOR_OPEN;
+import static ru.sbt.mipt.oop.SensorEventType.DOOR_OPEN;
 
-public class DoorEventProcessor extends EventProcess {
+public class DoorEventProcessor implements EventProcess {
     private final SmartHome smartHome;
     private final SensorEvent event;
 
@@ -13,6 +13,7 @@ public class DoorEventProcessor extends EventProcess {
         this.event = event;
     }
 
+    @Override
     public void processingEvent() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         for (Room room : smartHome.getRooms()) {
             for (Door door : room.getDoors()) {

@@ -1,16 +1,11 @@
 package ru.sbt.mipt.oop;
 
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static ru.sbt.mipt.oop.LightSensorEventType.LIGHT_ON;
 
 class HallDoorEventProcessorTest1 {
 

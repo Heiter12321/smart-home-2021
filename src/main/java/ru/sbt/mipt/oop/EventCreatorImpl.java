@@ -10,11 +10,11 @@ public class EventCreatorImpl implements EventCreator{
         SensorEventType sensorEventType;
         String objectId = "" + ((int) (10 * Math.random()));
         if (numberEventType > 1) {
-            sensorEventType = DoorSensorEventType.values()[numberEventType - 2];
-            return new DoorSensorEvent((DoorSensorEventType) sensorEventType, objectId);
+            sensorEventType = SensorEventType.values()[numberEventType - 2];
+            return new DoorSensorEvent(sensorEventType, objectId);
         } else {
-            sensorEventType = LightSensorEventType.values()[numberEventType];
-            return new LightSensorEvent((LightSensorEventType) sensorEventType, objectId);
+            sensorEventType = SensorEventType.values()[numberEventType];
+            return new LightSensorEvent(sensorEventType, objectId);
         }
     }
 }

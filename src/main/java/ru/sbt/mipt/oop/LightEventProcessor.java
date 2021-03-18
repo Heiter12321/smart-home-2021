@@ -1,8 +1,8 @@
 package ru.sbt.mipt.oop;
 
-import static ru.sbt.mipt.oop.LightSensorEventType.LIGHT_ON;
+import static ru.sbt.mipt.oop.SensorEventType.LIGHT_ON;
 
-public class LightEventProcessor extends EventProcess {
+public class LightEventProcessor implements EventProcess {
     private final SmartHome smartHome;
     private final SensorEvent event;
 

@@ -16,8 +16,9 @@ public class AllEventsProcess {
         while (event != null) {
             System.out.println("Got event: " + event);
 
-            EventProcess eventProcess = new EventProcess();
-            eventProcess.processingEvent(smartHome, event);
+            EventDistributor eventDistributor = new EventDistributor();
+            EventProcess eventProcessor =  eventDistributor.getNeededEventProcessor(smartHome, event);
+            eventProcessor.processingEvent();
 
             event = eventCreator.getNextSensorEvent();
         }

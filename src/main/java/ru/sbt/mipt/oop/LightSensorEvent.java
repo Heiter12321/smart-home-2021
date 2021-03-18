@@ -1,15 +1,15 @@
 package ru.sbt.mipt.oop;
 
 public class LightSensorEvent implements SensorEvent{
-    private final LightSensorEventType type;
+    private final SensorEventType type;
     private final String objectId;
 
-    public LightSensorEvent(LightSensorEventType type, String objectId) {
+    public LightSensorEvent(SensorEventType type, String objectId) {
         this.type = type;
         this.objectId = objectId;
     }
 
-    public LightSensorEventType getType() {
+    public SensorEventType getType() {
         return type;
     }
 

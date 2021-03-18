@@ -7,8 +7,8 @@ import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static ru.sbt.mipt.oop.DoorSensorEventType.DOOR_CLOSED;
-import static ru.sbt.mipt.oop.DoorSensorEventType.DOOR_OPEN;
+import static ru.sbt.mipt.oop.SensorEventType.DOOR_CLOSED;
+import static ru.sbt.mipt.oop.SensorEventType.DOOR_OPEN;
 
 class DoorEventProcessorTest1 {
 

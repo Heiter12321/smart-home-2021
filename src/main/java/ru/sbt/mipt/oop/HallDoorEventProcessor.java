@@ -1,7 +1,7 @@
 package ru.sbt.mipt.oop;
 
 
-public class HallDoorEventProcessor extends EventProcess {
+public class HallDoorEventProcessor implements EventProcess {
     private final SmartHome smartHome;
 
     public HallDoorEventProcessor(SmartHome smartHome) {
@@ -17,5 +17,10 @@ public class HallDoorEventProcessor extends EventProcess {
                 sender.sendCommand(command);
             }
         }
+    }
+
+    @Override
+    public void processingEvent() {
+        setLightOffAroundHome();
     }
 }

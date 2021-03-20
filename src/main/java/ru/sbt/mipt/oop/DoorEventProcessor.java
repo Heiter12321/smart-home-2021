@@ -15,7 +15,10 @@ public class DoorEventProcessor implements EventProcess {
 
     @Override
     public void processingEvent() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        for (Room room : smartHome.getRooms()) {
+        RoomIterator iterator = new RoomIterator(smartHome.rooms);
+
+        while(iterator.hasMore()) {
+            Room room = iterator.getNext();
             for (Door door : room.getDoors()) {
                 if (door.getId().equals(event.getObjectId())) {
                     if (event.getType() == DOOR_OPEN) {

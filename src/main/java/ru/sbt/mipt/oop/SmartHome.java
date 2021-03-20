@@ -13,18 +13,11 @@ public class SmartHome implements Actionable {
         this.rooms = rooms;
     }
 
-    public void addRoom(Room room) {
-        rooms.add(room);
-    }
-
-    public Collection<Room> getRooms() {
-        return rooms;
-    }
-
     @Override
-    public void execute(Action action) throws InvocationTargetException, IllegalAccessException {
-        for (Room room : rooms) {
-            room.execute(action);
+    public void execute(Action action) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+        RoomIterator iterator = new RoomIterator(rooms);
+        while (iterator.hasMore()) {
+            iterator.getNext().execute(action);
         }
     }
 }

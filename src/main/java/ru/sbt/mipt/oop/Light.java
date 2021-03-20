@@ -1,6 +1,8 @@
 package ru.sbt.mipt.oop;
 
-public class Light implements HomeElement {
+import java.lang.reflect.InvocationTargetException;
+
+public class Light implements Actionable {
     private boolean isLightOn;
     private final String id;
 
@@ -19,5 +21,14 @@ public class Light implements HomeElement {
 
     public void setOn(boolean on) {
         isLightOn = on;
+    }
+
+    @Override
+    public void execute(Action action) throws IllegalAccessException, InvocationTargetException {
+        try {
+            Light.class.getDeclaredMethod(action.getMethod().getName(), boolean.class);
+            action.getMethod().invoke(this, action.getParams());
+        } catch (NoSuchMethodException ignored) {
+        }
     }
 }

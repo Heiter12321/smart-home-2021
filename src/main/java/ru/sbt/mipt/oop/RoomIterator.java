@@ -3,15 +3,15 @@ package ru.sbt.mipt.oop;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class DoorIterator implements HomeElementIterator {
-    private final Iterator<Door> iterator;
+public class RoomIterator implements HomeElementIterator {
+    private final Iterator<Room> iterator;
 
-    public DoorIterator(Collection<Door> doors) {
-        this.iterator = doors.iterator();
+    public RoomIterator(Collection<Room> rooms) {
+        this.iterator = rooms.iterator();
     }
 
     @Override
-    public Door getNext() {
+    public Room getNext() {
         if (hasMore()) {
             return iterator.next();
         }

@@ -4,16 +4,14 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public class LightIterator implements HomeElementIterator {
-    private final Collection<Light> lights;
     private final Iterator<Light> iterator;
 
     public LightIterator(Collection<Light> lights) {
-        this.lights = lights;
         this.iterator = lights.iterator();
     }
 
     @Override
-    public HomeElement getNext() {
+    public Light getNext() {
         if (hasMore()) {
             return iterator.next();
         }

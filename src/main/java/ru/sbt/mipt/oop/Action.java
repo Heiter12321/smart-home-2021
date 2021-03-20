@@ -6,7 +6,7 @@ public class Action {
     private final Method method;
     private final Object params;
 
-    public Action(Method method, boolean params) {
+    public Action(Method method, Object params) {
         this.method = method;
         this.params = params;
     }

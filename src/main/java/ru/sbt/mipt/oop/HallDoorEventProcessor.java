@@ -11,7 +11,13 @@ public class HallDoorEventProcessor implements EventProcess {
     }
 
     public void setLightOffAroundHome() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        smartHome.execute(new Action(Light.class.getDeclaredMethod("setOn", boolean.class), false));
+        RoomIterator roomIterator = new RoomIterator(smartHome.rooms);
+        while (roomIterator.hasMore()) {
+            LightIterator lightIterator = new LightIterator(roomIterator.getNext().getLights());
+            while (lightIterator.hasMore()) {
+                lightIterator.getNext().execute(new Action(Light.class.getDeclaredMethod("setOn", boolean.class), false));
+            }
+        }
     }
 
     @Override

@@ -1,6 +1,6 @@
 package ru.sbt.mipt.oop;
 
-import static ru.sbt.mipt.oop.SensorEventType.LIGHT_ON;
+import static ru.sbt.mipt.oop.SensorEventType.*;
 
 public class LightEventProcessor implements EventProcess {
     private final SmartHome smartHome;
@@ -12,6 +12,10 @@ public class LightEventProcessor implements EventProcess {
     }
 
      public void processingEvent() {
+         if (!(event.getType() == LIGHT_ON || event.getType() == LIGHT_OFF)) {
+             return;
+         }
+
         for (Room room : smartHome.getRooms()) {
             for (Light light : room.getLights()) {
                 if (light.getId().equals(event.getObjectId())) {

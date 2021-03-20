@@ -7,9 +7,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class HomeReaderImpl implements HomeReader{
-    public SmartHome readHome(String path) throws IOException {
-        Gson gson = new Gson();
-        String json = new String(Files.readAllBytes(Paths.get(path)));
-        return gson.fromJson(json, SmartHome.class);
+    public SmartHome readHome(String path) {
+        try {
+            Gson gson = new Gson();
+            String json = new String(Files.readAllBytes(Paths.get(path)));
+            return gson.fromJson(json, SmartHome.class);
+        } catch (IOException e) {
+            return null;
+        }
     }
 }

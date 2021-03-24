@@ -12,21 +12,16 @@ public class LightEventProcessor implements EventProcess {
     }
 
      public void processingEvent() {
-         RoomIterator iterator = new RoomIterator(smartHome.rooms);
-
-         while(iterator.hasMore()) {
-             Room room = iterator.getNext();
-            for (Light light : room.getLights()) {
-                if (light.getId().equals(event.getObjectId())) {
-                    if (event.getType() == LIGHT_ON) {
-                        light.setOn(true);
-                        System.out.println("Light " + light.getId() + " in room " + room.getName() + " was turned on.");
-                    } else {
-                        light.setOn(false);
-                        System.out.println("Light " + light.getId() + " in room " + room.getName() + " was turned off.");
-                    }
-                }
-            }
-        }
+         smartHome.rooms.forEach(room -> room.getLights().forEach(light -> {
+             if (light.getId().equals(event.getObjectId())) {
+                 if (event.getType() == LIGHT_ON) {
+                     light.setOn(true);
+                     System.out.println("Light " + light.getId() + " in room " + room.getName() + " was turned on.");
+                 } else {
+                     light.setOn(false);
+                     System.out.println("Light " + light.getId() + " in room " + room.getName() + " was turned off.");
+                 }
+             }
+         }));
     }
 }

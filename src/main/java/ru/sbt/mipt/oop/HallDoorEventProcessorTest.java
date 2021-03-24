@@ -1,7 +1,6 @@
 package ru.sbt.mipt.oop;
 
 import org.junit.jupiter.api.Test;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -10,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class HallDoorEventProcessorTest1 {
 
     @Test
-    void setLightOffAroundHome() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    void setLightOffAroundHome() {
         SmartHome smartHome = new SmartHome(HomeBuilder.createFourRooms());
         HallDoorEventProcessor hallDoorEventProcessor = new HallDoorEventProcessor(smartHome);
         hallDoorEventProcessor.setLightOffAroundHome();
@@ -26,7 +25,7 @@ class HallDoorEventProcessorTest1 {
 class HallDoorEventProcessorTest2 {
 
     @Test
-    void setLightOffAroundHome() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    void setLightOffAroundHome() {
         Room room = new Room(Arrays.asList(new Light("228", true), new Light("1332", true)),
                 Collections.singletonList(new Door(true, "18")),
                 "hall");

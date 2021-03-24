@@ -2,14 +2,12 @@ package ru.sbt.mipt.oop;
 
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.InvocationTargetException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class RoomTest {
 
     @Test
-    void execute() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    void execute() throws NoSuchMethodException {
         SmartHome smartHome = new SmartHome(HomeBuilder.createFourRooms());
 
         int i = 0;

@@ -28,14 +28,20 @@ public class Room implements Actionable {
     }
 
     @Override
-    public void execute(Action action) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-        DoorIterator doorIterator = new DoorIterator(doors);
-        LightIterator lightIterator = new LightIterator(lights);
-        while (doorIterator.hasMore()) {
-            doorIterator.getNext().execute(action);
-        }
-        while (lightIterator.hasMore()) {
-            lightIterator.getNext().execute(action);
-        }
+    public void execute(Action action) {
+        doors.forEach(door -> {
+            try {
+                door.execute(action);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        });
+        lights.forEach(light -> {
+            try {
+                light.execute(action);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

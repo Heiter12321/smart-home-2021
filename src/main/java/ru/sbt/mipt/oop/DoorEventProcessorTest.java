@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.lang.reflect.InvocationTargetException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static ru.sbt.mipt.oop.SensorEventType.DOOR_CLOSED;
@@ -13,7 +12,7 @@ import static ru.sbt.mipt.oop.SensorEventType.DOOR_OPEN;
 class DoorEventProcessorTest1 {
 
     @Test
-    void processingEvent() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    void processingEvent() {
         SmartHome smartHome = new SmartHome(HomeBuilder.createFourRooms());
         SensorEvent event = new DoorSensorEvent(DOOR_OPEN, "3");
         DoorEventProcessor doorEventProcessor = new DoorEventProcessor(smartHome, event);
@@ -31,7 +30,7 @@ class DoorEventProcessorTest1 {
 class DoorEventProcessorTest2 {
 
     @Test
-    void processingEvent() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    void processingEvent() {
         SmartHome smartHome = new SmartHome(HomeBuilder.createFourRooms());
         SensorEvent event = new DoorSensorEvent(DOOR_CLOSED, "2");
         DoorEventProcessor doorEventProcessor = new DoorEventProcessor(smartHome, event);

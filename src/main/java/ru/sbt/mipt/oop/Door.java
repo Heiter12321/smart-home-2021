@@ -24,7 +24,7 @@ public class Door implements Actionable {
     }
 
     @Override
-    public void execute(Action action) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    public void execute(Action action) throws IllegalAccessException, InvocationTargetException {
         try {
             Door.class.getDeclaredMethod(action.getMethod().getName(), boolean.class);
             action.getMethod().invoke(this, action.getParams());

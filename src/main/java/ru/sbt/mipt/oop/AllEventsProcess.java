@@ -1,7 +1,5 @@
 package ru.sbt.mipt.oop;
 
-import java.lang.reflect.InvocationTargetException;
-
 public class AllEventsProcess {
     private final EventCreator eventCreator;
     private final SmartHome smartHome;
@@ -11,14 +9,14 @@ public class AllEventsProcess {
         this.smartHome = smartHome;
     }
 
-    void eventProcessCycle() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    void eventProcessCycle() {
         SensorEvent event = eventCreator.getNextSensorEvent();
         while (event != null) {
             System.out.println("Got event: " + event);
 
-            EventDistributor eventDistributor = new EventDistributor();
-            EventProcess eventProcessor =  eventDistributor.getNeededEventProcessor(smartHome, event);
-            eventProcessor.processingEvent();
+            new DoorEventProcessor(smartHome, event).processingEvent();
+
+            new LightEventProcessor(smartHome, event).processingEvent();
 
             event = eventCreator.getNextSensorEvent();
         }

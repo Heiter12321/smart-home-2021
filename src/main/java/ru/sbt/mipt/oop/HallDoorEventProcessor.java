@@ -1,27 +1,22 @@
 package ru.sbt.mipt.oop;
 
-
-import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 
 public class HallDoorEventProcessor implements EventProcess {
-    private final SmartHome smartHome;
+    private final Collection<Light> lights;
 
-    public HallDoorEventProcessor(SmartHome smartHome) {
-        this.smartHome = smartHome;
+    public HallDoorEventProcessor(Collection<Light> lights) {
+        this.lights = lights;
     }
 
     public void setLightOffAroundHome() {
-        smartHome.rooms.forEach(room -> room.getLights().forEach(light -> {
-            try {
-                light.execute(new Action(Light.class.getDeclaredMethod("setOn", boolean.class), false));
-            } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-                e.printStackTrace();
-            }
-        }));
+        lights.forEach(light -> {
+            light.setOn(false);
+        });
     }
 
     @Override
-    public void processingEvent() {
+    public void processingEvent(SensorEvent event) {
         setLightOffAroundHome();
     }
 }

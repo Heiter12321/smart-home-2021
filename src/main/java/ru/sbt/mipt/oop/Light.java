@@ -2,7 +2,7 @@ package ru.sbt.mipt.oop;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class Light implements Actionable {
+public class Light implements Actionable, HomeElement {
     private boolean isLightOn;
     private final String id;
 
@@ -24,11 +24,7 @@ public class Light implements Actionable {
     }
 
     @Override
-    public void execute(Action action) throws IllegalAccessException, InvocationTargetException {
-        try {
-            Light.class.getDeclaredMethod(action.getMethod().getName(), boolean.class);
-            action.getMethod().invoke(this, action.getParams());
-        } catch (NoSuchMethodException ignored) {
-        }
+    public void execute(Action action) {
+        action.execute(this);
     }
 }

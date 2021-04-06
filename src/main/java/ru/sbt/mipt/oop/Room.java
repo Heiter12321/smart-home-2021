@@ -1,10 +1,8 @@
 package ru.sbt.mipt.oop;
 
-
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
-public class Room implements Actionable {
+public class Room implements Actionable, HomeElement {
     private final Collection<Light> lights;
     private final Collection<Door> doors;
     private final String name;
@@ -15,33 +13,14 @@ public class Room implements Actionable {
         this.name = name;
     }
 
-    public Collection<Light> getLights() {
-        return lights;
-    }
-
-    public Collection<Door> getDoors() {
-        return doors;
-    }
-
     public String getName() {
         return name;
     }
 
     @Override
     public void execute(Action action) {
-        doors.forEach(door -> {
-            try {
-                door.execute(action);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
-            }
-        });
-        lights.forEach(light -> {
-            try {
-                light.execute(action);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
-            }
-        });
+        action.execute(this);
+        doors.forEach(door -> door.execute(action));
+        lights.forEach(light -> light.execute(action));
     }
 }

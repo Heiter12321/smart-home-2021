@@ -1,16 +1,15 @@
 package ru.sbt.mipt.oop;
 
-public class LightEvent extends SensorEvent {
+public class SensorEvent implements Event{
     private final SensorEventType type;
     private final String objectId;
 
-    public LightEvent(SensorEventType type, String objectId) {
-        super(type, objectId);
+    public SensorEvent(SensorEventType type, String objectId) {
         this.type = type;
         this.objectId = objectId;
     }
 
-    public SensorEventType getType() {
+    public EventType getType() {
         return type;
     }
 
@@ -20,9 +19,10 @@ public class LightEvent extends SensorEvent {
 
     @Override
     public String toString() {
-        return "DoorSensorEvent{" +
+        return "SignalingSensorEvent{" +
                 "type=" + type +
                 ", objectId='" + objectId + '\'' +
                 '}';
     }
 }
+

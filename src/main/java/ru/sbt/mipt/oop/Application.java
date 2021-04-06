@@ -1,13 +1,14 @@
 package ru.sbt.mipt.oop;
 
-import java.io.IOException;
+import com.coolcompany.smarthome.events.SensorEventsManager;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 
 public class Application {
 
-    public static void main(String... args) throws IOException {
-        // считываем состояние дома из файла
-        HomeReader homeReader = new HomeReaderImpl();
-        SmartHome smartHome = homeReader.readHome("smart-home-1.js");
-        // начинаем цикл обработки событий
+    public static void main(String... args) {
+        AbstractApplicationContext context = new AnnotationConfigApplicationContext(MyConfiguration.class);
+        SensorEventsManager sensorEventsManager = (SensorEventsManager) context.getBean(String.valueOf(SensorEventsManager.class));
+        sensorEventsManager.start();
     }
 }

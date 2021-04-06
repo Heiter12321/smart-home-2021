@@ -5,11 +5,13 @@ import java.util.Collection;
 
 public class SmartHome implements Actionable, HomeElement {
     private Collection<Room> rooms;
+    Signaling signaling;
 
     public SmartHome() { rooms = new ArrayList<>(); }
 
-    public SmartHome(Collection<Room> rooms) {
+    public SmartHome(Collection<Room> rooms, Signaling signaling) {
         this.rooms = rooms;
+        this.signaling = signaling;
     }
 
     @Override

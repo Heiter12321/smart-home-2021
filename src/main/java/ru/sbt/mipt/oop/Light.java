@@ -1,7 +1,5 @@
 package ru.sbt.mipt.oop;
 
-import java.lang.reflect.InvocationTargetException;
-
 public class Light implements Actionable, HomeElement {
     private boolean isLightOn;
     private final String id;

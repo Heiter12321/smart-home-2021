@@ -1,15 +1,15 @@
 package ru.sbt.mipt.oop;
 
-public class DoorSensorEvent implements SensorEvent{
-    private final SensorEventType type;
+public class SignalingEvent implements Event{
+    private final SignalingEventType type;
     private final String objectId;
 
-    public DoorSensorEvent(SensorEventType type, String objectId) {
+    public SignalingEvent(SignalingEventType type, String objectId) {
         this.type = type;
         this.objectId = objectId;
     }
 
-    public SensorEventType getType() {
+    public EventType getType() {
         return type;
     }
 
@@ -19,7 +19,7 @@ public class DoorSensorEvent implements SensorEvent{
 
     @Override
     public String toString() {
-        return "DoorSensorEvent{" +
+        return "SignalingSensorEvent{" +
                 "type=" + type +
                 ", objectId='" + objectId + '\'' +
                 '}';

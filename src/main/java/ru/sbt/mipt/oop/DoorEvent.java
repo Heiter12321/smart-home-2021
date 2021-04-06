@@ -1,10 +1,10 @@
 package ru.sbt.mipt.oop;
 
-public class LightSensorEvent implements SensorEvent{
+public class DoorEvent implements Event {
     private final SensorEventType type;
     private final String objectId;
 
-    public LightSensorEvent(SensorEventType type, String objectId) {
+    public DoorEvent(SensorEventType type, String objectId) {
         this.type = type;
         this.objectId = objectId;
     }

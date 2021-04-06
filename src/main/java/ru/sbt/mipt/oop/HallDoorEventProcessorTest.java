@@ -11,13 +11,12 @@ class HallDoorEventProcessorTest1 {
 
     @Test
     void setLightOffAroundHome() {
-        Collection<Light> lights = Arrays.asList(new Light("1", false), new Light("2", true));
-        Collection<Door> doors = Collections.singletonList(new Door(false, "1"));
-        HallDoorEventProcessor hallDoorEventProcessor = new HallDoorEventProcessor(lights);
-        hallDoorEventProcessor.setLightOffAroundHome();
+    }
+}
 
-        for (Light light : lights) {
-            assertFalse(light.isLightOn());
-        }
+class HallDoorEventProcessorTest2 {
+
+    @Test
+    void setLightOffAroundHome() {
     }
 }

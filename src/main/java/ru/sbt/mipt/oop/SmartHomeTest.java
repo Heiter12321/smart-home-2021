@@ -11,7 +11,5 @@ class SmartHomeTest {
 
     @Test
     void execute() {
-        SmartHome smartHome = new SmartHome(HomeBuilder.createFourRooms());
-        smartHome.execute((Action) new Door(true, "7"));
     }
 }

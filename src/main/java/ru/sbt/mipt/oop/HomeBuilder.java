@@ -7,7 +7,7 @@ import java.util.Collections;
 public class HomeBuilder {
 
     public static void main(String[] args) {
-        SmartHome smartHome = new SmartHome(createFourRooms());
+        SmartHome smartHome = new SmartHome(createFourRooms(), new Signaling("password"));
         HomePrinter homePrinter = new HomePrinter(smartHome);
         homePrinter.printRoom();
     }

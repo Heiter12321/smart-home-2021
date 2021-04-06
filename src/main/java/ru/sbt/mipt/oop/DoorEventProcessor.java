@@ -6,9 +6,11 @@ import static ru.sbt.mipt.oop.SensorEventType.DOOR_OPEN;
 
 public class DoorEventProcessor extends EventProcess {
     private final Collection<Door> doors;
+    private final SMSSender smsSender;
 
-    public DoorEventProcessor(Collection<Door> doors) {
+    public DoorEventProcessor(Collection<Door> doors, SMSSender smsSender) {
         this.doors = doors;
+        this.smsSender = smsSender;
     }
 
     @Override
@@ -17,7 +19,7 @@ public class DoorEventProcessor extends EventProcess {
             if (door.getId().equals(event.getObjectId())) {
                 if (smartHome.signaling.state.getClass().isInstance(ActivateState.class)) {
                     smartHome.signaling.changeState(new AlarmState(smartHome.signaling));
-                    new SMSSender(smartHome).sendSMS();
+                    smsSender.sendSMS();
                     return;
                 }
                 if (smartHome.signaling.state.getClass().isInstance(AlarmState.class)) {

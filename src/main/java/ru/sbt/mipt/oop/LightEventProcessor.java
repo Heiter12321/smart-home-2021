@@ -6,9 +6,11 @@ import static ru.sbt.mipt.oop.SensorEventType.LIGHT_ON;
 
 public class LightEventProcessor extends EventProcess {
     private final Collection<Light> lights;
+    private final SMSSender smsSender;
 
-    public LightEventProcessor(Collection<Light> lights) {
+    public LightEventProcessor(Collection<Light> lights, SMSSender smsSender) {
         this.lights = lights;
+        this.smsSender = smsSender;
     }
 
      public void processingEvent(SmartHome smartHome, Event event) {
@@ -16,7 +18,7 @@ public class LightEventProcessor extends EventProcess {
              if (light.getId().equals(event.getObjectId())) {
                  if (smartHome.signaling.state.getClass().isInstance(ActivateState.class)) {
                      smartHome.signaling.changeState(new AlarmState(smartHome.signaling));
-                     new SMSSender(smartHome).sendSMS();
+                     smsSender.sendSMS();
                      return;
                  }
                  if (smartHome.signaling.state.getClass().isInstance(AlarmState.class)) {

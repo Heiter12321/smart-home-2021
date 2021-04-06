@@ -5,16 +5,18 @@ import java.util.Collection;
 public class HallDoorEventProcessor extends EventProcess {
     private final Collection<Light> lights;
     private final SmartHome smartHome;
+    private final SMSSender smsSender;
 
-    public HallDoorEventProcessor(SmartHome smartHome, Collection<Light> lights) {
+    public HallDoorEventProcessor(SmartHome smartHome, Collection<Light> lights, SMSSender smsSender) {
         this.lights = lights;
         this.smartHome = smartHome;
+        this.smsSender = smsSender;
     }
 
     public void setLightOffAroundHome() {
         if (smartHome.signaling.state.getClass().isInstance(ActivateState.class)) {
             smartHome.signaling.changeState(new AlarmState(smartHome.signaling));
-            new SMSSender(smartHome).sendSMS();
+            smsSender.sendSMS();
             return;
         }
 

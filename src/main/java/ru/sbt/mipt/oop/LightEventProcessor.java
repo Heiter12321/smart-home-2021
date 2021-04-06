@@ -4,14 +4,12 @@ import static ru.sbt.mipt.oop.SensorEventType.*;
 
 public class LightEventProcessor implements EventProcess {
     private final SmartHome smartHome;
-    private final SensorEvent event;
 
-    public LightEventProcessor(SmartHome smartHome, SensorEvent event) {
+    public LightEventProcessor(SmartHome smartHome) {
         this.smartHome = smartHome;
-        this.event = event;
     }
 
-     public void processingEvent() {
+     public void processingEvent(SensorEvent event) {
          if (!(event.getType() == LIGHT_ON || event.getType() == LIGHT_OFF)) {
              return;
          }

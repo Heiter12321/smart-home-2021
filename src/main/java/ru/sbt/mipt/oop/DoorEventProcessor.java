@@ -5,15 +5,13 @@ import static ru.sbt.mipt.oop.SensorEventType.DOOR_OPEN;
 
 public class DoorEventProcessor implements EventProcess {
     private final SmartHome smartHome;
-    private final SensorEvent event;
 
-    public DoorEventProcessor(SmartHome smartHome, SensorEvent event) {
+    public DoorEventProcessor(SmartHome smartHome) {
         this.smartHome = smartHome;
-        this.event = event;
     }
 
     @Override
-    public void processingEvent() {
+    public void processingEvent(SensorEvent event) {
         if (!(event.getType() == DOOR_OPEN || event.getType() == DOOR_CLOSED)) {
             return;
         }

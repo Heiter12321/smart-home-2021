@@ -20,7 +20,7 @@ public class HallDoorEventProcessor implements EventProcess {
     }
 
     @Override
-    public void processingEvent() {
+    public void processingEvent(SensorEvent event) {
         setLightOffAroundHome();
     }
 }

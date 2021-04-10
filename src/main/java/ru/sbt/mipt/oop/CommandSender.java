@@ -1,5 +1,7 @@
 package ru.sbt.mipt.oop;
 
-public interface CommandSender {
-    void sendCommand(SensorCommand command);
+public class CommandSender {
+     void sendCommand(SensorCommand command) {
+        System.out.println(command);
+    }
 }

@@ -10,5 +10,6 @@ public class Sample {
             System.out.println("Event type [" + event.getEventType() + "] from object with id=" + event.getObjectId() + "]");
         });
         sensorEventsManager.start();
+
     }
 }

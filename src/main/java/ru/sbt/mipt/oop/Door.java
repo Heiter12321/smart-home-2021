@@ -1,24 +1,24 @@
 package ru.sbt.mipt.oop;
 
-public class Door implements Actionable, HomeElement {
+public class Door implements Actionable{
     private final String id;
-    private boolean isDoorOpen;
+    private boolean isOpen;
 
-    public Door(boolean isDoorOpen, String id) {
-        this.isDoorOpen = isDoorOpen;
+    public Door(boolean isOpen, String id) {
+        this.isOpen = isOpen;
         this.id = id;
     }
 
-    String getId() {
+    public String getId() {
         return id;
     }
 
-    public boolean isDoorOpen() {
-        return isDoorOpen;
+    public void setOpen(boolean open) {
+        isOpen = open;
     }
 
-    void setOpen(boolean open) {
-        isDoorOpen = open;
+    public boolean isOpen() {
+        return isOpen;
     }
 
     @Override

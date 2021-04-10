@@ -1,5 +1,5 @@
 package ru.sbt.mipt.oop;
 
-public interface Action {
-    void execute(HomeElement element);
+public interface Action  {
+    void execute(Object item);
 }

@@ -1,13 +1,16 @@
 package ru.sbt.mipt.oop;
 
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class Application {
 
-    public static void main(String... args) throws IOException {
-        // считываем состояние дома из файла
-        HomeReader homeReader = new HomeReaderImpl();
-        SmartHome smartHome = homeReader.readHome("smart-home-1.js");
-        // начинаем цикл обработки событий
+    public static void main(String... args) throws Exception {
+        SmartHome smartHome = HomeReader.createHome("smart-home-1.js");
+        ArrayList<Handler> handlers = new ArrayList<>();
+        handlers.add(new LightHandler(smartHome));
+        handlers.add(new DoorHandler(smartHome));
+        handlers.add(new HallHandler(smartHome));
+        EventCircle eventCircle = new EventCircle(handlers);
+        eventCircle.run();
     }
 }

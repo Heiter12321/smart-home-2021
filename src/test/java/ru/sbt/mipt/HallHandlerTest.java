@@ -1,14 +1,11 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt;
 
 import org.junit.Test;
-import ru.sbt.mipt.CommandSender;
-import ru.sbt.mipt.HomeBuilder;
 import ru.sbt.mipt.components.Action;
 import ru.sbt.mipt.components.Door;
 import ru.sbt.mipt.components.Light;
 import ru.sbt.mipt.components.SmartHome;
 import ru.sbt.mipt.handlers.HallHandler;
-import ru.sbt.mipt.handlers.SMSSender;
 import ru.sbt.mipt.sensor.SensorEvent;
 import ru.sbt.mipt.sensor.SensorEventType;
 

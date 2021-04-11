@@ -1,8 +1,7 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt;
 
 import com.coolcompany.smarthome.events.CCSensorEvent;
 import org.junit.Test;
-import ru.sbt.mipt.HomeBuilder;
 import ru.sbt.mipt.adapter.AdapterHandler;
 import ru.sbt.mipt.handlers.DoorHandler;
 import ru.sbt.mipt.components.Action;

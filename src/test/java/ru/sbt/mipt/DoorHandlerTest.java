@@ -1,7 +1,6 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt;
 
 import org.junit.Test;
-import ru.sbt.mipt.HomeBuilder;
 import ru.sbt.mipt.components.Action;
 import ru.sbt.mipt.components.Door;
 import ru.sbt.mipt.components.SmartHome;

@@ -8,7 +8,13 @@ public class SensorEvent {
     public SensorEvent(SensorEventType type, String objectId) {
         this.type = type;
         this.objectId = objectId;
-        code = "";
+        this.code = "";
+    }
+
+    public SensorEvent(SensorEventType type) {
+        this.type = type;
+        this.objectId = "";
+        this.code = "";
     }
 
     public SensorEvent(SensorEventType type, String objectId, String code) {

@@ -6,12 +6,10 @@ import ru.sbt.mipt.sensor.SensorEvent;
 public class AlarmDecorator implements Handler {
     private final Alarm alarm;
     private final Handler handler;
-    private final SMSSender sender;
 
-    public AlarmDecorator(Alarm alarm, Handler handler, SMSSender sender) {
+    public AlarmDecorator(Alarm alarm, Handler handler) {
         this.alarm = alarm;
         this.handler = handler;
-        this.sender = sender;
     }
 
 
@@ -21,7 +19,6 @@ public class AlarmDecorator implements Handler {
             handler.handle(event);
         } else {
             alarm.changeToAnxietyMode();
-            sender.sendSMS();
         }
     }
 }

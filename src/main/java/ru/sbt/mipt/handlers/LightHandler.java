@@ -24,7 +24,6 @@ public class LightHandler implements Handler {
                     }
                 }
             };
-
             home.execute(action);
         }
 
@@ -37,7 +36,6 @@ public class LightHandler implements Handler {
                     }
                 }
             };
-
             home.execute(action);
         }
     }
